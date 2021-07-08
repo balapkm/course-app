@@ -7,12 +7,13 @@
     "lectures": 123,
     "length": "2h 23m",
     "review": 4,
-    "price": "$12",
+    "price": "$49",
     "createdBy": "G.Balakumaran",
     "updatedOn": "12 June 21",
     "ratings": 1200,
     "courseContent": [
       {
+        "id": 1,
         "title": "Course Overview",
         "length": "00:54",
         "details": [
@@ -27,6 +28,7 @@
         ]
       },
       {
+        "id": 2,
         "title": "Java Setup",
         "length": "00:54",
         "details": [
@@ -44,18 +46,19 @@
   },
   {
     "id": 2,
-    "name": "Java script",
+    "name": "JavaScript",
     "description": "Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games",
     "sections": 23,
     "lectures": 123,
     "length": "2h 23m",
     "review": 4,
-    "price": "$10",
+    "price": "$15",
     "createdBy": "G.Balakumaran",
     "updatedOn": "12 June 21",
     "ratings": 1200,
     "courseContent": [
       {
+        "id": 1,
         "title": "Course Overview",
         "length": "00:54",
         "details": [
@@ -70,6 +73,7 @@
         ]
       },
       {
+        "id": 2,
         "title": "Java Setup",
         "length": "00:54",
         "details": [
@@ -87,18 +91,19 @@
   },
   {
     "id": 3,
-    "name": "PHP",
+    "name": "Android",
     "description": "Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games",
     "sections": 23,
     "lectures": 123,
     "length": "2h 23m",
     "review": 4,
-    "price": "$14",
+    "price": "$10",
     "createdBy": "G.Balakumaran",
     "updatedOn": "12 June 21",
     "ratings": 1200,
     "courseContent": [
       {
+        "id": 1,
         "title": "Course Overview",
         "length": "00:54",
         "details": [
@@ -113,6 +118,7 @@
         ]
       },
       {
+        "id": 2,
         "title": "Java Setup",
         "length": "00:54",
         "details": [
@@ -129,19 +135,20 @@
     ]
   },
   {
-    "id": 4,
-    "name": "Android",
+    "id": 3,
+    "name": "React",
     "description": "Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games",
     "sections": 23,
     "lectures": 123,
     "length": "2h 23m",
     "review": 4,
-    "price": "$10",
+    "price": "$12",
     "createdBy": "G.Balakumaran",
     "updatedOn": "12 June 21",
     "ratings": 1200,
     "courseContent": [
       {
+        "id": 1,
         "title": "Course Overview",
         "length": "00:54",
         "details": [
@@ -156,6 +163,7 @@
         ]
       },
       {
+        "id": 2,
         "title": "Java Setup",
         "length": "00:54",
         "details": [
