@@ -20,7 +20,7 @@ function App() {
         <Navbar />
 
         <Switch>
-          <Route path="/details/:id">
+          <Route path="/course-app/details/:id">
             <Details />
           </Route>
           <Route path="/">

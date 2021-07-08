@@ -28,7 +28,7 @@ function Course(props) {
                 </li>
             </ul>
             <button type="button" onClick={() => history.push({ 
-                    pathname: '/details/'+ data.id,
+                    pathname: '/course-app/details/'+ data.id,
                     state: data
                 })}  className={(type === 'details') ? "btn btn-lg btn-block btn-outline-danger" : "btn btn-lg btn-block btn-outline-primary"}>{(type === 'details') ? 'Add Cart' : 'Buy now'}</button>
         </div>
