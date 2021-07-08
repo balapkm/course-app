@@ -1,100 +1,71 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import './App.css';
 
+import React, { useState } from 'react';
+
+import db from './db.json';
+import { useParams } from "react-router-dom";
+
+const Course = React.lazy(() => import('./Course'));
+
 function Details() {
+  
+  const { id } = useParams();
+  const [data, setData] = useState([]);
+
+  React.useEffect(() => {
+    setData(db.filter((v) => v.id === parseInt(id))[0]);
+  } ,[data, id]);
+  
   return (
     <>
       <div className="container">
         <div className="row">
           <div className="col-lg-8">
-            <div class="jumbotron">
-              <h1>Java</h1>
-              <p>Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games</p>
+            <div className="jumbotron">
+              <h1>{data.name}</h1>
+              <p>{data.description}</p>
               <p className="mb-0">
-                Created by <b>Balakumaran</b>
+                Created by <b>{data.createdBy}</b>
               </p>
-              <span style={{fontSize: '12px'}}>Last updated on <b>12 June 21</b></span>
+              <span style={{fontSize: '12px'}}>Last updated on <b>{data.updatedOn}</b></span>
               
             </div>
             <h5 className="mb-3">Course content</h5>
-            <div id="accordion">
-              <div class="card">
-                <div class="card-header">
-                  <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                    Course Overview
-                    <span className="duration">1hr 22min</span>
-                  </a>
-                </div>
-                <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                  <div class="card-body">
-                    <ul className="list-unstyled">
-                      <li>
-                        1. Auto-Welcome Message
-                        <span className="duration">22min</span>
-                      </li>
-                      <li>
-                        2. Auto-Welcome Message
-                        <span className="duration">22min</span>
-                      </li>
-                      <li>
-                        3. Auto-Welcome Message
-                        <span className="duration">22min</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-header">
-                  <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                    Collapsible Group Item #2
-                  </a>
-                </div>
-                <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                  <div class="card-body">
-                    Lorem ipsum..
-                  </div>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-header">
-                  <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                    Collapsible Group Item #3
-                  </a>
-                </div>
-                <div id="collapseThree" class="collapse" data-parent="#accordion">
-                  <div class="card-body">
-                    Lorem ipsum..
-                  </div>
-                </div>
-              </div>
+            <div id="accordion" className="mb-4">
+              {(data.courseContent) && (
+                <>
+                  {data.courseContent.map((v, k) => {
+                    return (
+                      <div key={k} className="card">
+                        <div className="card-header">
+                          <a className="card-link" data-toggle="collapse" href={"#collapse" + v.id}>
+                            {v.title}
+                            <span className="duration">{v.length}</span>
+                          </a>
+                        </div>
+                        <div id={"collapse" + v.id} className={k === 0 ? "collapse show": "collapse"} data-parent="#accordion">
+                          <div className="card-body">
+                            <ul className="list-unstyled">
+                              {v.details.map((v1, k1) => { 
+                                return (
+                                  <li>
+                                    {k1+1}. {v1.title}
+                                    <span className="duration">{v1.length}</span>
+                                  </li>
+                                )
+                              })}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
             </div>
           </div>
           <div className="col-lg-4">
-            <div className="card mb-3 box-shadow">
-              <div className="card-header">
-                <h4 className="my-0 font-weight-normal">Details</h4>
-              </div>
-              <div className="card-body">
-                <h1 className="card-title pricing-card-title">$0 <small className="text-muted">/ mon</small></h1>
-                <ul className="list-unstyled mt-3 mb-4">
-                  <li>23 sections</li>
-                  <li>155 lectures</li>
-                  <li>22h 13m total length</li>
-                  <li>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="ml-2">(1,200 ratings)</span>
-                  </li>
-                </ul>
-                <button type="button" className="btn btn-lg btn-block btn-outline-danger">Add Cart</button>
-              </div>
-            </div>
+            <Course data={data} type={"details"}/>
           </div>
         </div>
       </div>
